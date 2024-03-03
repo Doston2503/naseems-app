@@ -1,0 +1,45 @@
+.home-gallery-carousel {
+  .carousel-items {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+    .main-img{
+      width: 95%;
+    }
+
+    .overlay {
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      bottom: 0;
+      left: -95%;
+      width: 95%;
+      height: 100%;
+      border-radius: 19px;
+    }
+
+    &:hover{
+      .overlay{
+        left: 0;
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .home-gallery-carousel {
+    padding: 0 24px;
+    .carousel-items {
+      .main-img{
+        width: 100%;
+      }
+
+      .overlay {
+        left: -100%;
+        width: 100%;
+      }
+    }
+  }
+}

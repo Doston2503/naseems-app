@@ -1,0 +1,109 @@
+.gallery-modal {
+  margin-top: 8vh !important;
+  max-width: 84% !important;
+
+  .modal-content {
+    min-height: 84vh;
+    padding: 24px 48px;
+  }
+
+  .modal-header {
+    padding: 0;
+    align-items: flex-start !important;
+    border: none;
+  }
+
+  .modal-body {
+    padding: 0;
+    margin-top: 10px;
+  }
+
+  .modal-title {
+    font-size: 32px;
+    font-family: "Manrope-Bold", sans-serif;
+    line-height: 38px;
+
+  }
+
+  .btn-close {
+    margin-top: 10px !important;
+  }
+
+  .carousel-items{
+    .main-img{
+      width: 100%;
+    }
+  }
+
+  .alice-carousel__prev-btn-item, .alice-carousel__next-btn-item{
+    position: absolute;
+    left: -96px;
+    top: 45%;
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+    border: 1px solid #444444;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/assets/img/carousel-black-icon.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    &:hover{
+      transform: rotate(180deg);
+      background-color: #262E6B;
+      background-image: url("/assets/img/carousel-icon.svg");
+    }
+    span{
+      display: none;
+    }
+
+  }
+  .alice-carousel__next-btn-item{
+    left: auto;
+    right: -96px;
+    transform: rotate(180deg);
+    &:hover{
+      transform: rotate(0);
+      background-color: #262E6B;
+      background-image: url("/assets/img/carousel-icon.svg");
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-modal {
+    margin-top:12px !important;
+    max-width: 95% !important;
+    margin-left: 2% !important;
+
+    .modal-content {
+      min-height: auto !important;
+      padding: 24px;
+    }
+    .modal-title {
+      font-size: 30px;
+    }
+
+    .modal-text {
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .btn-close {
+      margin-top:0 !important;
+    }
+
+    .alice-carousel__prev-btn-item, .alice-carousel__next-btn-item{
+      position: relative;
+      left: calc(100% - 48px);
+      right: 0;
+      top:20px;
+    }
+    .alice-carousel__next-btn-item{
+      right: 0;
+      left: auto;
+
+    }
+  }
+}

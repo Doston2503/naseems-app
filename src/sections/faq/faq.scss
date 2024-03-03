@@ -1,0 +1,78 @@
+.faq-component{
+  .faq-title{
+    font-size: 56px;
+    font-family: "Neue-SemiBold",sans-serif;
+    line-height: 72px;
+    text-align: center;
+    padding: 0 12px;
+    margin-bottom: 50px;
+    color: #262E6B;
+  }
+  .card{
+    margin-bottom: 24px;
+    border: none;
+    .card-header{
+      display: flex;
+      border-radius: 16px;
+      justify-content: space-between;
+      align-items: center;
+      padding:30px 40px;
+      border: 2px solid #C1C1C1;
+      background-color: white;
+      font-size: 24px;
+      cursor: pointer;
+
+     span{
+       font-family: "Manrope-SemiBold",sans-serif;
+     }
+    }
+
+    .card-header[aria-expanded="true"]{
+      border: 2px solid #262E6B;
+      border-bottom: 0;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+
+      img{
+        transform: rotate(180deg);
+      }
+    }
+
+    .card-body{
+      padding:0 40px 30px  40px;
+      border: 2px solid #C1C1C1;
+      border-radius: 16px;
+      line-height: 28px;
+      font-family: "Manrope-Medium",sans-serif;
+    }
+
+    .card-header+ div{
+      .card-body{
+        border: 2px solid #262E6B;
+        border-top: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .faq-component{
+    .faq-title{
+      font-size: 36px;
+      line-height: 44px;
+    }
+    .card{
+      .card-header{
+        padding:20px;
+        font-size: 18px;
+      }
+
+
+      .card-body{
+        padding:0 20px 20px  20px;
+      }
+    }
+  }
+}

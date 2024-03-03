@@ -1,0 +1,81 @@
+.customer-research-component {
+  background-color: #F0F1FF;
+  padding: 59px 0 0 0;
+
+  .about-us {
+    font-family: "Manrope-Bold", sans-serif;
+    font-size: 20px;
+    line-height: 32px;
+    color: #262E6B;
+    text-align: center;
+  }
+
+  .customer-research {
+    font-family: "Neue-SemiBold", sans-serif;
+    font-size: 40px;
+    line-height: 52px;
+    margin: 12px auto 27px auto;
+    width: 375px;
+    text-align: center;
+
+  }
+
+  .text {
+    font-family: "Neue-Regular", sans-serif;
+    padding-bottom: 68px;
+    font-size: 20px;
+    line-height: 26px;
+    text-align: center;
+  }
+
+  .our-mission {
+    background-color: white;
+    padding-top: 48px;
+
+    .mission-title{
+      font-family: "Neue-SemiBold",sans-serif;
+      font-size: 32px;
+      line-height: 41px;
+      margin-bottom: 30px;
+    }
+    .mission-text{
+      font-family:"Neue-Regular",sans-serif;
+      font-size: 20px;
+      line-height: 26px;
+      span{
+        display: block;
+        margin-bottom: 24px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .customer-research-component {
+    .customer-research {
+      font-size: 32px;
+      line-height: 40px;
+      width: auto;
+    }
+
+    .text {
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    .our-mission {
+      .mission-title{
+        font-size: 28px;
+        line-height: 36px;
+        margin-top: 30px;
+      }
+      .mission-text{
+        font-size: 16px;
+        line-height: 24px;
+        span{
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}

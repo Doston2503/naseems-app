@@ -1,0 +1,163 @@
+.header-component {
+  background-color: #262E6B;
+  min-height: calc(100vh - 90px);
+  padding: 80px 0;
+  box-sizing: border-box;
+
+  .header-title {
+    font-family: "Neue-SemiBold", sans-serif;
+    font-size: 72px;
+    line-height: 80px;
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .header-text {
+    font-family: "Manrope-Regular", sans-serif;
+    font-size: 24px;
+    line-height: 32px;
+    color: #B2B3BE;
+    text-align: center;
+    margin: 32px auto 97px auto;
+  }
+
+  .add-contact {
+    margin: 0 auto;
+    width: 290px;
+    height: 190px;
+    border: 2px dashed #4C5482;
+    border-radius: 24px;
+    padding: 15px;
+    box-sizing: border-box;
+
+    button {
+      background-color: #EEF0FF;
+      border: none;
+      width: 260px;
+      height: 160px;
+      border-radius: 24px;
+    }
+
+    span {
+      display: block;
+      margin-top: 16px;
+      font-family: "Manrope-Bold", sans-serif;
+    }
+  }
+
+  .header-top-left-img, .header-top-right-img,
+  .header-bottom-left-img, .header-bottom-right-img {
+    position: relative;
+    padding-top: 50px;
+    text-align: center;
+
+    &:hover {
+      .overlay {
+        opacity: 1;
+      }
+    }
+
+    .overlay {
+      text-align: left;
+      background-color: #909DFF;
+      color: white;
+      font-family: "Manrope-Bold", sans-serif;
+      font-size: 14px;
+      padding: 14px;
+      border-radius: 24px;
+      border-top-left-radius: 0;
+      position: absolute;
+      bottom: -50px;
+      right: -20px;
+      width: 80%;
+      opacity: 0;
+      transition: 0.3s linear;
+    }
+
+    img {
+      border-radius: 50%;
+    }
+  }
+
+  .header-top-right-img {
+    padding-top: 90px;
+  }
+
+  .header-bottom-left-img, .header-bottom-right-img {
+    text-align: left;
+    padding-top: 0;
+
+    .overlay {
+      width: 60%;
+      left: 20%;
+      bottom: -20px;
+    }
+  }
+
+  .header-bottom-right-img{
+   text-align: right;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-component {
+    padding: 20px 0;
+    height: auto;
+    box-sizing: border-box;
+
+    .header-title {
+      font-size: 46px;
+      line-height: 55px;
+      margin: 20px auto;
+    }
+
+    .header-text {
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+      margin: 20px auto;
+    }
+
+    .add-contact {
+      margin: 50px auto;
+    }
+
+    .header-top-left-img, .header-top-right-img,
+    .header-bottom-left-img, .header-bottom-right-img {
+      padding-top: 0;
+      margin-top: 30px;
+      .overlay {
+        font-size: 12px;
+        padding: 10px;
+        bottom: 0;
+        right: 20px;
+        width: 200px;
+        opacity: 0;
+        transition: 0.3s linear;
+      }
+    }
+
+    .header-top-right-img {
+      padding-top: 0;
+      margin-top: 50px;
+    }
+
+    .header-bottom-left-img, .header-bottom-right-img {
+      text-align: center;
+      padding-top:0;
+      margin-top: 30px;
+
+      .overlay {
+        left: auto;
+        bottom: 0;
+        right: 20px;
+        width: 200px;
+      }
+    }
+
+    .header-bottom-right-img{
+      text-align: center;
+    }
+  }
+}

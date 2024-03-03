@@ -1,0 +1,36 @@
+.scroll-top-button {
+  background-color: white;
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #e43767;
+  cursor: pointer;
+  z-index: 100;
+  img {
+    width: 20px;
+  }
+  transition: 0.3s all linear;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+@media (max-width: 576px) {
+  .scroll-top-button {
+    width: 50px;
+    height: 50px;
+    right: 40px;
+    bottom: 50px;
+    border-radius: 5px;
+    img {
+      width: 20px;
+    }
+  }
+}

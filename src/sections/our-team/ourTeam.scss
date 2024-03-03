@@ -1,0 +1,45 @@
+.our-team-component {
+  margin-bottom: 30px;
+
+  .team-box {
+    height: 352px;
+    margin-bottom: 30px;
+    position: relative;
+
+    .overlay {
+      width: 100%;
+      position: absolute;
+      height: 72px;
+      bottom: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 16.96%, #000000 100%);
+      z-index: 10;
+      padding: 16px;
+      box-sizing: border-box;
+      color: white;
+      .name{
+        font-family: "Neue-SemiBold",sans-serif;
+        font-size: 20px;
+        line-height: 26px;
+      }
+      .job{
+        font-family: "Neue-Regular",sans-serif;
+        font-size: 14px;
+        line-height: 18px;
+        color: #BBBBBB;
+
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .our-team-component {
+    .team-box {
+      height:auto;
+      margin-bottom: 30px;
+      img{
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,79 @@
+.contact-page{
+  background: linear-gradient(#F0F1FF, white);
+  padding: 56px 0;
+  .title {
+    font-family: "Manrope-Bold", sans-serif;
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: -0.02em;
+    text-align: center;
+  }
+
+  .text {
+    font-family: "Neue-SemiBold", sans-serif;
+    font-size: 40px;
+    line-height: 52px;
+    text-align: center;
+    margin: 12px 0 32px 0;
+  }
+
+  .contact-form-section{
+    background-color: white;
+    padding: 68px 0;
+  }
+  .form-title {
+    font-size: 32px;
+    font-family: "Manrope-Bold", sans-serif;
+    line-height: 38px;
+
+  }
+
+  .form-text {
+    font-size: 16px;
+    line-height: 25px;
+    margin-bottom: 32px;
+    margin-top: 16px;
+  }
+
+  .submit-btn {
+    border: none;
+    width: 100%;
+    background-color: #081233;
+    height: 56px;
+    font-size: 20px;
+    font-family: "Manrope-Medium",sans-serif;
+    color: white;
+    border-radius: 9px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-page{
+    padding: 50px 0;
+    .title {
+      font-size: 18px;
+      line-height: 26px;
+    }
+
+    .text {
+      font-size: 32px;
+      line-height: 46px;
+    }
+
+    .contact-form-section{
+      padding: 30px 20px;
+    }
+    .form-title {
+      font-size: 28px;
+    }
+
+    .form-text {
+      font-size: 14px;
+      margin-top: 5px;
+    }
+    .contact-modal-image{
+      width: 100%;
+      margin-top: 40px;
+    }
+  }
+}

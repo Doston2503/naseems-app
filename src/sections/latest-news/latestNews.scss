@@ -1,0 +1,53 @@
+.latest-news-page{
+  padding: 80px 0;
+  .title{
+    font-size: 48px;
+    line-height: 56px;
+    margin-bottom: 48px;
+    font-family: "Manrope-Bold",sans-serif;
+    color: #15161A;
+    text-align: center;
+  }
+
+  .news-box{
+    .news-title{
+      font-size: 24px;
+      line-height: 32px;
+      color: #15161A;
+      margin: 24px 0 32px 0;
+      height: 100px;
+      font-family: "Manrope-Bold",sans-serif;
+    }
+    a{
+      color: #96A1FF;
+      font-size: 24px;
+      line-height: 32px;
+      font-family: "Manrope-Bold",sans-serif;
+      text-decoration: none;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .latest-news-page{
+    padding: 60px 0;
+    .title{
+      font-size: 36px;
+      line-height: 44px;
+    }
+
+    .news-box{
+      margin-bottom: 50px;
+      .news-title{
+        font-size: 18px;
+        line-height: 26px;
+        margin: 20px 0;
+        height: auto;
+      }
+      a{
+        font-size: 18px;
+        line-height: 26px;
+      }
+    }
+  }
+}

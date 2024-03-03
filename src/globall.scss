@@ -1,0 +1,66 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Manrope-Regular",sans-serif;
+  scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  height: 20px;
+  background: #fff;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #262E6B;
+}
+
+@font-face {
+  font-family: 'Neue-Regular';
+  src: url("./fonts/neue/Regular.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: 'Neue-SemiBold';
+  src: url("./fonts/neue/SemiBold.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: 'Manrope-Regular';
+  src: url("./fonts/manrope/Manrope-Regular.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: 'Manrope-Medium';
+  src: url("./fonts/manrope/Manrope-Medium.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: 'Manrope-SemiBold';
+  src: url("./fonts/manrope/Manrope-SemiBold.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: 'Manrope-Bold';
+  src: url("./fonts/manrope/Manrope-Bold.ttf") format('truetype');
+}
+
+.all-main-title {
+  font-family: "Neue-SemiBold", sans-serif;
+  font-size: 56px;
+  line-height: 72px;
+  text-align: center;
+  color: #262E6B;
+}
+
+@media (max-width: 768px) {
+  .all-main-title {
+    font-size: 36px;
+    line-height: 44px;
+  }
+}

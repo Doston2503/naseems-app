@@ -1,0 +1,42 @@
+.gallery-page{
+  background: linear-gradient(#262E6B,#1A1F46);
+  padding: 48px 0 27px 0;
+  .gallery-title{
+    width: 194px;
+    height: 44px;
+    color: #96A1FF;
+    border: 2px solid #96A1FF;
+    border-radius: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-family: "Manrope-Medium",sans-serif;
+  }
+  .gallery-text{
+    color: white;
+    font-size: 48px;
+    line-height: 56px;
+    margin-top: 24px;
+    text-align: center;
+    font-family: "Manrope-Bold",sans-serif;
+    margin-bottom: 80px;
+    span{
+      font-family: "Manrope-Bold",sans-serif;
+      color: #96A1FF;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-page{
+    .gallery-text{
+      padding:0 12px;
+      color: white;
+      font-size: 34px;
+      line-height: 42px;
+      margin-top: 24px;
+      margin-bottom: 60px;
+    }
+  }
+}

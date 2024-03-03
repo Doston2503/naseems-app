@@ -1,0 +1,87 @@
+.contact-modal {
+  margin-top: 8vh !important;
+  max-width: 84% !important;
+
+  .modal-content {
+    min-height: 84vh;
+    padding: 24px 48px;
+  }
+
+  .modal-header {
+    padding: 0;
+    align-items: flex-start !important;
+    border: none;
+  }
+
+  .modal-body {
+    padding: 0;
+  }
+
+  .modal-title {
+    font-size: 32px;
+    font-family: "Manrope-Bold", sans-serif;
+    line-height: 38px;
+
+  }
+
+  .modal-text {
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  .btn-close {
+    margin-top: 10px !important;
+  }
+
+  .contact-form {
+    padding-right: 40px;
+  }
+
+  .submit-btn {
+    border: none;
+    width: 100%;
+    background-color: #081233;
+    height: 56px;
+    font-size: 20px;
+    font-family: "Manrope-Medium",sans-serif;
+    color: white;
+    border-radius: 9px;
+  }
+
+  .contact-modal-image{
+    width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-modal {
+    margin-top:12px !important;
+    max-width: 95% !important;
+    margin-left: 2% !important;
+
+    .modal-content {
+      min-height: auto !important;
+      padding: 24px;
+    }
+    .modal-title {
+      font-size: 30px;
+    }
+
+    .modal-text {
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .btn-close {
+      margin-top:0 !important;
+    }
+
+    .contact-form {
+      padding-right:0;
+    }
+
+    .contact-modal-image{
+      display: none;
+    }
+  }
+}

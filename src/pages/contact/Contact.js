@@ -1,9 +1,26 @@
 import React from 'react';
 import './contact.scss'
-import {ModalBody} from "reactstrap";
+import axios from "axios";
+import {API_URL} from "../../constants";
+import {toast} from "react-toastify";
+
 function Contact(props) {
     function addContact(e) {
-        e.preventDefault()
+        e.preventDefault();
+        let data={
+            full_name:e.target?.fullName?.value,
+            phone:e.target?.phone?.value,
+            email:e.target?.email?.value,
+            content:e.target?.description?.value,
+        };
+        axios.post(`${API_URL}main/contacts/`,data)
+            .then((res)=>{
+                toast.success("Ma'lumotlar yuborildi");
+                e.target.reset();
+                console.log(res);
+            }).catch((error)=>{
+            toast.error("Ma'lumotlar yuborishda xatolik yuz berdi");
+        })
     }
     return (
         <div className="contact-page">

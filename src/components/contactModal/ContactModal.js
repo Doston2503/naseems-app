@@ -1,10 +1,26 @@
 import React from 'react';
 import './contactModal.scss'
 import {Modal, ModalBody, ModalHeader} from 'reactstrap';
+import axios from "axios";
+import {API_URL} from "../../constants";
+import {toast} from "react-toastify";
 
 function ContactModal({modal, toggle}) {
     function addContact(e) {
-        e.preventDefault()
+        e.preventDefault();
+        let data={
+            full_name:e.target?.fullName?.value,
+            phone:e.target?.phone?.value,
+            email:e.target?.email?.value,
+            content:e.target?.description?.value,
+        };
+        axios.post(`${API_URL}main/contacts/`,data)
+            .then((res)=>{
+                toast.success("Ma'lumotlar yuborildi");
+                e.target.reset();
+            }).catch((error)=>{
+            toast.error("Ma'lumotlar yuborishda xatolik yuz berdi");
+        })
     }
 
     return (
@@ -25,8 +41,8 @@ function ContactModal({modal, toggle}) {
                         <div className="contact-form">
                             <form onSubmit={addContact}>
                                 <label htmlFor="fullName" className="mt-3">
-                                    Full name
-                                </label>
+                                Full name
+                            </label>
                                 <input
                                     required={true}
                                     name="fullName"

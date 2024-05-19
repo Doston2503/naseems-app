@@ -34,9 +34,9 @@ function App() {
                 <Route path="/" exact={true} component={Home}/>
                 <Route path="/about-us" component={About}/>
                 <Route path="/courses" exact={true} component={Courses}/>
-                <Route path="/courses/detail" component={CourseDetail}/>
+                <Route path="/courses/:detail" component={CourseDetail}/>
                 <Route path="/news-blogs" exact={true} component={News}/>
-                <Route path="/news-blogs/detail" exact={true} component={NewsDetail}/>
+                <Route path="/news-blogs/:detail" exact={true} component={NewsDetail}/>
                 <Route path="/contact" component={Contact}/>
             </Switch>
             <Footer/>

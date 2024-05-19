@@ -1,6 +1,7 @@
-.news-blog-page{
+.news-blog-page {
   background: linear-gradient(#F0F1FF, white);
   padding: 56px 0;
+
   .title {
     font-family: "Manrope-Bold", sans-serif;
     font-size: 20px;
@@ -16,28 +17,36 @@
     text-align: center;
     margin: 12px 0 32px 0;
   }
-  .news-box{
-    .news-title{
+
+  .news-box {
+    .main-img {
+      width: 100%;
+      height: 240px;
+    }
+
+    .news-title {
       font-size: 24px;
       line-height: 32px;
       color: #15161A;
       margin: 24px 0 32px 0;
       height: 100px;
-      font-family: "Manrope-Bold",sans-serif;
+      font-family: "Manrope-Bold", sans-serif;
     }
-    a{
+
+    a {
       color: #96A1FF;
       font-size: 24px;
       line-height: 32px;
-      font-family: "Manrope-Bold",sans-serif;
+      font-family: "Manrope-Bold", sans-serif;
       text-decoration: none;
     }
   }
 }
 
 @media (max-width: 768px) {
-  .news-blog-page{
+  .news-blog-page {
     padding: 50px 0;
+
     .title {
       font-size: 18px;
       line-height: 26px;
@@ -48,15 +57,17 @@
       line-height: 46px;
     }
 
-    .news-box{
+    .news-box {
       margin-bottom: 50px;
-      .news-title{
+
+      .news-title {
         font-size: 18px;
         line-height: 26px;
         margin: 20px 0;
         height: auto;
       }
-      a{
+
+      a {
         font-size: 18px;
         line-height: 26px;
       }

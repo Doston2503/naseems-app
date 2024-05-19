@@ -1,5 +1,6 @@
 import React from 'react';
 import './footer.scss'
+import {Link} from "react-router-dom";
 function Footer(props) {
     return (
         <div className="container">
@@ -44,10 +45,11 @@ function Footer(props) {
                         </div>
 
                         <ul>
-                            <li><a href=""> <a href="#">Courses</a></a></li>
-                            <li><a href=""> <a href="#">News & blogs </a></a></li>
-                            <li><a href=""> <a href="#">Careers</a></a></li>
-                            <li><a href=""> <a href="#">Contact us</a></a></li>
+                            <li><Link to="/about-us"> About</Link></li>
+                            <li><Link to="/courses"> Courses</Link></li>
+                            <li><Link to="/news-blogs"> News & blogs</Link></li>
+                            <li><Link to="/contact"> Contact us</Link></li>
+
                         </ul>
                     </div>
                     <div className="col">

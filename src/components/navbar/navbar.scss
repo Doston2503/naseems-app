@@ -85,6 +85,10 @@
             justify-content: center;
             text-transform: uppercase;
             cursor: pointer;
+           .flag-image{
+             border: 2px solid white;
+             border-radius: 50%;
+           }
           }
 
           img {
@@ -101,11 +105,13 @@
 
           .select {
             position: absolute;
-            bottom: -60px;
+            bottom: -70px;
             width: 100%;
-            border: 1px solid #dedede;
+            border: 1px solid #DDDDDD;
             transition: 0.3s all linear;
-            background: #ffffff;
+            background: #FFFFFF;
+            border-radius: 8px;
+            overflow: hidden;
 
             .language {
               display: flex;
@@ -396,6 +402,8 @@
           border: 1px solid #dedede;
           transition: 0.3s all linear;
           background: #ffffff;
+          border-radius: 8px;
+          overflow: hidden;
 
           .language {
             display: flex;

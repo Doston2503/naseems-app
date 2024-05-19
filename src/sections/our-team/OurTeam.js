@@ -1,6 +1,17 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './ourTeam.scss'
+import axios from "axios";
+import {API_URL} from "../../constants";
 function OurTeam(props) {
+    const [data,setData]=useState([]);
+
+    useEffect(()=>{
+        axios.get(`${API_URL}main/teams/?page=1`)
+            .then((res)=>{
+                setData(res.data.results);
+            }).catch((error)=>{
+        })
+    },[]);
     return (
         <div className="our-team-component">
             <div className="all-main-title mb-5">
@@ -9,94 +20,20 @@ function OurTeam(props) {
 
             <div className="container">
                 <div className="row">
-                    <div className="col-xl-3">
-                        <div className="team-box">
-                            <img src="/assets/images/team.png" alt=""/>
-                            <div className="overlay">
-                                <div className="name">Sayfullo Ergashev</div>
-                                <div className="job">
-                                    Digital Marketer
+                    {data?.map((item)=>(
+                        <div className="col-xl-3" key={item?.id}>
+                            <div className="team-box">
+                                <img className="w-100 h-100" src={item?.image} alt={item?.image}/>
+                                <div className="overlay">
+                                    <div className="name">{item?.full_name}</div>
+                                    <div className="job">
+                                        {item?.position}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="col-xl-3">
-                        <div className="team-box">
-                            <img src="/assets/images/team.png" alt=""/>
-                            <div className="overlay">
-                                <div className="name">Sayfullo Ergashev</div>
-                                <div className="job">
-                                    Digital Marketer
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-xl-3">
-                        <div className="team-box">
-                            <img src="/assets/images/team.png" alt=""/>
-                            <div className="overlay">
-                                <div className="name">Sayfullo Ergashev</div>
-                                <div className="job">
-                                    Digital Marketer
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-xl-3">
-                        <div className="team-box">
-                            <img src="/assets/images/team.png" alt=""/>
-                            <div className="overlay">
-                                <div className="name">Sayfullo Ergashev</div>
-                                <div className="job">
-                                    Digital Marketer
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-xl-3">
-                        <div className="team-box">
-                            <img src="/assets/images/team.png" alt=""/>
-                            <div className="overlay">
-                                <div className="name">Sayfullo Ergashev</div>
-                                <div className="job">
-                                    Digital Marketer
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-xl-3">
-                        <div className="team-box">
-                            <img src="/assets/images/team.png" alt=""/>
-                            <div className="overlay">
-                                <div className="name">Sayfullo Ergashev</div>
-                                <div className="job">
-                                    Digital Marketer
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-xl-3">
-                        <div className="team-box">
-                            <img src="/assets/images/team.png" alt=""/>
-                            <div className="overlay">
-                                <div className="name">Sayfullo Ergashev</div>
-                                <div className="job">
-                                    Digital Marketer
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-xl-3">
-                        <div className="team-box">
-                            <img src="/assets/images/team.png" alt=""/>
-                            <div className="overlay">
-                                <div className="name">Sayfullo Ergashev</div>
-                                <div className="job">
-                                    Digital Marketer
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    ))}
+
                 </div>
             </div>
         </div>

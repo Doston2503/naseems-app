@@ -1,7 +1,26 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './newsBlogPage.scss'
 import {Link} from "react-router-dom";
+import axios from "axios";
+import {API_URL} from "../../constants";
+import Pagination from '@mui/material/Pagination';
 function News(props) {
+    const [data,setData]=useState([]);
+    const [count,setCount]=useState(0);
+    const [page,setPage]=useState(1);
+
+    useEffect(()=>{
+        axios.get(`${API_URL}news/list/?page=${page}`)
+            .then((res)=>{
+                setData(res.data.results);
+                setCount(res.data.count);
+            }).catch((error)=>{
+        })
+    },[page]);
+
+    function handleChange(e) {
+        setPage(e.target.textContent);
+    }
     return (
         <div className="news-blog-page">
             <div className="title">
@@ -13,42 +32,30 @@ function News(props) {
 
             <div className="container">
                 <div className="row">
-                    <div className="col-xl-4">
-                        <div className="news-box">
-                            <img src="/assets/images/news.png" alt="news img" className="img-fluid"/>
-                            <div className="news-title">
-                                10 Reasons to Choose an International Corporate
-                                Training Provider for Local Business Growth
+                    {data?.map((item)=>(
+                        <div className="col-xl-4" key={item?.id}>
+                            <div className="news-box">
+                                <img src={item?.image} alt={item?.title} className="main-img"/>
+                                <div className="news-title">
+                                    {item?.title}
+                                </div>
+                                <Link to={"/news-blogs/"+item.slug}>
+                                    Details <img src="/assets/images/arrow-top.png" alt=""/>
+                                </Link>
                             </div>
-                            <Link to="/news-blogs/detail">
-                                Details <img src="/assets/images/arrow-top.png" alt=""/>
-                            </Link>
                         </div>
-                    </div>
-                    <div className="col-xl-4">
-                        <div className="news-box">
-                            <img src="/assets/images/news.png" alt="news img" className="img-fluid"/>
-                            <div className="news-title">
-                                What’s the difference between Sales and Marketing?
-                            </div>
-                            <Link to="/news-blogs/detail">
-                                Details <img src="/assets/images/arrow-top.png" alt=""/>
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="col-xl-4">
-                        <div className="news-box">
-                            <img src="/assets/images/news.png" alt="news img" className="img-fluid"/>
-                            <div className="news-title">
-                                Unlocking Success: Business Transformation and
-                                Its Impact on Your Organisation
-                            </div>
-                            <Link to="/news-blogs/detail">
-                                Details <img src="/assets/images/arrow-top.png" alt=""/>
-                            </Link>
-                        </div>
-                    </div>
+                    ))}
+                   <div className="mt-5 d-flex justify-content-end">
+                       <Pagination
+                           onChange={handleChange}
+                           // hideNextButton={true}
+                           // hidePrevButton={true}
+                           className="pagination"
+                           color="primary"
+                           count={count/10+1} />
+                   </div>
                 </div>
+
             </div>
         </div>
     );

@@ -1,7 +1,18 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './ourValues.scss'
+import axios from "axios";
+import {API_URL} from "../../constants";
 
 function OurValues(props) {
+    const [data,setData]=useState([]);
+
+    useEffect(()=>{
+        axios.get(`${API_URL}main/values/?page=1`)
+            .then((res)=>{
+                setData(res.data.results);
+            }).catch((error)=>{
+        })
+    },[]);
     return (
         <div className="our-values-component">
             <div className="all-main-title mb-5">
@@ -10,71 +21,20 @@ function OurValues(props) {
 
             <div className="container">
                 <div className="row">
-                    <div className="col-xl-4">
-                        <div className="box">
-                            <img src="/assets/about/quality.svg" alt=""/>
-                            <div className="title">
-                                Quality:
-                            </div>
-                            <div className="text">
-                                We are committed to delivering high-quality programmes to our delegates and clients.
-                                This includes ensuring that our instructors are knowledgeable and experienced, and that
-                                their resources are up-to-date, relevant and effective.
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-xl-4">
-                        <div className="box">
-                            <img src="/assets/about/respect.svg" alt=""/>
-                            <div className="title">
-                                Respect:
-                            </div>
-                            <div className="text">
-                                Mutual respect forms the basis of our business. We hold in high esteem our clients and
-                                our delegates and we earn their respect in the way we behave. We value all our
-                                stakeholders and treat them with consideration
+                    {data?.map((item)=>(
+                        <div className="col-xl-4" key={item?.id}>
+                            <div className="box">
+                                <img src={item?.image} alt={item?.image}/>
+                                <div className="title">
+                                    {item?.title}
+                                </div>
+                                <div className="text">
+                                    {item?.content}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="col-xl-4">
-                        <div className="box">
-                            <img src="/assets/about/inovation.svg" alt=""/>
-                            <div className="title">
-                                Innovation::
-                            </div>
-                            <div className="text">
-                                We are committed to delivering high-quality programmes to our delegates and clients.
-                                This includes ensuring that our instructors are knowledgeable and experienced, and that
-                                their resources are up-to-date, relevant and effective.
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-xl-4">
-                        <div className="box">
-                            <img src="/assets/about/success.svg" alt=""/>
-                            <div className="title">
-                                Success:
-                            </div>
-                            <div className="text">
-                                We are committed to delivering high-quality programmes to our delegates and clients.
-                                This includes ensuring that our instructors are knowledgeable and experienced, and that
-                                their resources are up-to-date, relevant and effective.
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-xl-4">
-                        <div className="box">
-                            <img src="/assets/about/collaboration.svg" alt=""/>
-                            <div className="title">
-                                Collaboration:
-                            </div>
-                            <div className="text">
-                                Mutual respect forms the basis of our business. We hold in high esteem our clients and
-                                our delegates and we earn their respect in the way we behave. We value all our
-                                stakeholders and treat them with consideration
-                            </div>
-                        </div>
-                    </div>
+                    ))}
+
                 </div>
             </div>
         </div>

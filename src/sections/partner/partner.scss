@@ -11,27 +11,21 @@
 
   .partner-box{
     display: flex;
-    justify-content: space-between;
     align-items: center;
     margin-bottom: 9px;
+    flex-wrap: wrap;
     .box{
       background-color: #EDEDF2;
       height: 137px;
+      margin-bottom: 10px;
+      width: 24%;
       border-radius: 18px;
       display: flex;
       justify-content: center;
       align-items: center;
       box-sizing: border-box;
-      width: 135px;
+      margin-right:1% ;
     }
-
-    .big-box{
-      width: 417px;
-    }
-    .middle-box{
-      width: 323px;
-    }
-
   }
 }
 
@@ -45,20 +39,19 @@
     .partner-box{
       display: flex;
       flex-wrap: wrap;
+      justify-content: space-between;
       .box{
+        margin-right: 0;
         margin-bottom: 20px;
         height: 137px;
-        width: auto;
-        padding:0 40px;
+        width: 49%;
         box-sizing: border-box;
+        text-align: center;
+        img{
+          width: 80%;
+        }
       }
 
-      .big-box{
-        width: auto;
-      }
-      .middle-box{
-        width: auto;
-      }
 
     }
   }

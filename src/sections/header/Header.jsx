@@ -37,7 +37,7 @@ const Header = () => {
                     </div>
                     <div className="col-xl-2">
                         <div className="header-top-right-img">
-                            <img src="/assets/images/header-overlay.png" alt=""/>
+                            <img src="/assets/images/header-right-top-img.png" alt=""/>
                             <div className="overlay">
                                 Lorem ipsum dolor sit amet, consectetur
                             </div>
@@ -64,7 +64,7 @@ const Header = () => {
                     </div>
                     <div className="col-xl-4">
                         <div className="header-bottom-right-img">
-                            <img src="/assets/images/header-overlay-big.png" alt=""/>
+                            <img src="/assets/images/header-right-bottom-img.png" alt=""/>
                             <div className="overlay">
                                 Lorem ipsum dolor sit amet, consectetur
                             </div>

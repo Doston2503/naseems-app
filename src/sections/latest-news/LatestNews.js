@@ -1,7 +1,20 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './latestNews.scss'
 import {Link} from "react-router-dom";
+import axios from "axios";
+import {API_URL} from "../../constants";
 function LatestNews(props) {
+    const [data,setData]=useState([]);
+    const [count,setCount]=useState(0);
+
+    useEffect(()=>{
+        axios.get(`${API_URL}news/list/?page=1`)
+            .then((res)=>{
+                setData(res.data.results);
+                setCount(res.data.count);
+            }).catch((error)=>{
+        })
+    },[]);
     return (
         <div className="latest-news-page">
             <div className="title">
@@ -9,41 +22,19 @@ function LatestNews(props) {
             </div>
             <div className="container">
                 <div className="row">
-                    <div className="col-xl-4">
-                       <div className="news-box">
-                           <img src="/assets/images/news.png" alt="news img" className="img-fluid"/>
-                           <div className="news-title">
-                               10 Reasons to Choose an International Corporate
-                               Training Provider for Local Business Growth
-                           </div>
-                           <Link to="/courses">
-                               Details <img src="/assets/images/arrow-top.png" alt=""/>
-                           </Link>
-                       </div>
-                    </div>
-                    <div className="col-xl-4">
-                        <div className="news-box">
-                            <img src="/assets/images/news.png" alt="news img" className="img-fluid"/>
-                            <div className="news-title">
-                                What’s the difference between Sales and Marketing?
+                    {data?.map((item)=>(
+                        <div className="col-xl-4" key={item?.id}>
+                            <div className="news-box">
+                                <img src={item?.image} alt={item?.title} className="news-img"/>
+                                <div className="news-title">
+                                    {item?.title}
+                                </div>
+                                <Link to={"/news-blogs/"+item.slug}>
+                                    Details <img src="/assets/images/arrow-top.png" alt=""/>
+                                </Link>
                             </div>
-                            <Link to="/courses">
-                                Details <img src="/assets/images/arrow-top.png" alt=""/>
-                            </Link>
                         </div>
-                    </div>
-                    <div className="col-xl-4">
-                        <div className="news-box">
-                            <img src="/assets/images/news.png" alt="news img" className="img-fluid"/>
-                            <div className="news-title">
-                                Unlocking Success: Business Transformation and
-                                Its Impact on Your Organisation
-                            </div>
-                            <Link to="/courses">
-                                Details <img src="/assets/images/arrow-top.png" alt=""/>
-                            </Link>
-                        </div>
-                    </div>
+                    ))}
                 </div>
             </div>
         </div>

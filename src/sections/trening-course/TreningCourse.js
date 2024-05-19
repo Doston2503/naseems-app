@@ -1,8 +1,27 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './treningCourse.scss'
 import {Link} from "react-router-dom";
+import axios from "axios";
+import {API_URL} from "../../constants";
 
 function TreningCourse(props) {
+    const [data,setData]=useState([]);
+    const [courses,setCourses]=useState([]);
+
+    useEffect(()=>{
+        axios.get(`${API_URL}main/counters/?page=1`)
+            .then((res)=>{
+                setData(res.data.results);
+            }).catch((error)=>{
+        });
+
+        axios.get(`${API_URL}course/list/?page=1`)
+            .then((res)=>{
+                setCourses(res.data.results);
+            }).catch((error)=>{
+        })
+    },[]);
+
     return (
         <div className="trening-course-page">
             <div className="container">
@@ -15,30 +34,16 @@ function TreningCourse(props) {
                 </div>
 
                 <div className="row">
-                    <div className="col-xl-4">
-                        <div className="trening-box">
-                            <div className="count">+22K</div>
-                            <div className="text">
-                                Students use our platform
+                    {data?.map(item=>(
+                        <div className="col-xl-4" key={item?.id}>
+                            <div className={item?.id===2 ? "trening-box border-box":"trening-box"}>
+                                <div className="count">+ {item?.count>1000 ? (item?.count/1000)+"K":item?.count}</div>
+                                <div className="text">
+                                    {item?.title}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="col-xl-4 border-box">
-                        <div className="trening-box">
-                            <div className="count">+950</div>
-                            <div className="text">
-                                Courses in Fiction Platform
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-xl-4">
-                        <div className="trening-box">
-                            <div className="count">+150</div>
-                            <div className="text">
-                                Recently issued certificates
-                            </div>
-                        </div>
-                    </div>
+                    ))}
                 </div>
 
                 <div className="trening-main-title">
@@ -46,96 +51,19 @@ function TreningCourse(props) {
                 </div>
 
                 <div className="row">
-                    <div className="col-xl-4">
-                    <Link to="/courses" className="course-box">
-                        <div className="course-box-title">
-                            MANAGEMENT
+                    {courses?.map((item,index)=>(
+                        <div className="col-xl-4" key={index}>
+                            <Link to={"courses/"+item?.slug} className="course-box">
+                                <div className="course-box-title">
+                                    {item?.category?.title}
+                                </div>
+                                <div>
+                                    {/*<img src={item?.image} alt=""/>*/}
+                                </div>
+                            </Link>
                         </div>
-                       <div>
-                           <img src="/assets/trening/img1.png" alt=""/>
-                       </div>
-                    </Link>
-                </div>
-                    <div className="col-xl-4">
-                        <Link to="/courses" className="course-box">
-                            <div className="course-box-title">
-                                BANKING AND FINANCE
-                            </div>
-                            <div>
-                                <img src="/assets/trening/img2.png" alt=""/>
-                            </div>
-                        </Link>
-                    </div>
-                    <div className="col-xl-4">
-                        <Link to="/courses" className="course-box">
-                            <div className="course-box-title">
-                                LEADERSHIP
-                            </div>
-                           <div>
-                               <img src="/assets/trening/img3.png" alt=""/>
-                           </div>
-                        </Link>
-                    </div>
-                    <div className="col-xl-4">
-                        <Link to="/courses" className="course-box course-box-4">
-                            <div className="course-box-title">
-                                HUMAN RESOURCES
-                            </div>
-                           <div>
-                               <img src="/assets/trening/img4.png" alt=""/>
-                           </div>
-                        </Link>
-                    </div>
-                    <div className="col-xl-4">
-                        <Link to="/courses" className="course-box">
-                            <div className="course-box-title">
-                                LAW
-                            </div>
-                            <div>
-                                <img src="/assets/trening/img5.png" alt=""/>
-                            </div>
-                        </Link>
-                    </div>
-                    <div className="col-xl-4">
-                        <Link to="/courses" className="course-box">
-                            <div className="course-box-title">
-                                DIGITAL
-                            </div>
-                           <div>
-                               <img src="/assets/trening/img6.png" alt=""/>
-                           </div>
-                        </Link>
-                    </div>
-                    <div className="col-xl-4">
-                        <Link to="/courses" className="course-box">
-                            <div className="course-box-title">
-                                GOVERNANCE AND RISK MANAGEMENT
-                            </div>
-                           <div>
-                               <img src="/assets/trening/img7.png" alt=""/>
-                           </div>
-                        </Link>
-                    </div>
-                    <div className="col-xl-4">
-                        <Link to="/courses" className="course-box">
-                            <div className="course-box-title">
-                                EMPLOYEE WELLBEING AND DIVERSITY
-                            </div>
-                           <div>
-                               <img src="/assets/trening/img8.png" alt=""/>
-                           </div>
-                        </Link>
-                    </div>
-                    <div className="col-xl-4">
-                        <Link to="/courses" className="course-box">
-                            <div className="course-box-title">
-                                SUSTAINABILITY AND CLIMATE CHANGE
-                            </div>
-                           <div>
-                               <img src="/assets/trening/img9.png" alt=""/>
-                           </div>
-                        </Link>
-                    </div>
+                    ))}
+
                 </div>
             </div>
         </div>

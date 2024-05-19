@@ -70,7 +70,6 @@ const Navbar = () => {
 
   const [currentLang, setCurrentLang] = useState(i18n.language);
 
-
   const changeLanguage = (lang = "en") => {
     setCurrentLang(lang);
     setLangOpen(false);
@@ -132,7 +131,7 @@ const Navbar = () => {
                         : EnImage
                     }
                     alt=""
-                    className="flag-image"
+                    className="flag-image me-2"
                   />
                   <div className="text">{currentLang}</div>
                   <img

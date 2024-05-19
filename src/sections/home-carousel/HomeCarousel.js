@@ -13,58 +13,116 @@ function HomeCarousel(props) {
 
     };
     const items = [
+        <div key={1} className="carousel-items padding-item" onClick={toggle}>
+           <div className="first-row-item">
+               <img className="main-img" src="/assets/gallery/img1.png" alt=""/>
+               <div className="overlay">
+                   <img src="/assets/gallery/play.png" alt=""/>
+               </div>
+           </div>
+            <div className="second-row-item">
+                <img className="main-img" src="/assets/gallery/img2.png" alt=""/>
+                <div className="overlay">
+                    <img src="/assets/gallery/play.png" alt=""/>
+                </div>
+            </div>
+        </div>,
         <div key={1} className="carousel-items" onClick={toggle}>
-            <img className="main-img" src="/assets/gallery/img1.png" alt=""/>
-            <div className="overlay">
-                <img src="/assets/gallery/play.png" alt=""/>
+            <div className="first-row-item">
+                <img className="main-img" src="/assets/gallery/img2.png" alt=""/>
+                <div className="overlay">
+                    <img src="/assets/gallery/play.png" alt=""/>
+                </div>
+            </div>
+            <div className="second-row-item">
+                <img className="main-img" src="/assets/gallery/img1.png" alt=""/>
+                <div className="overlay">
+                    <img src="/assets/gallery/play.png" alt=""/>
+                </div>
             </div>
         </div>,
-        <div key={2} className="carousel-items" onClick={toggle}>
-            <img className="main-img" src="/assets/gallery/img1.png" alt=""/>
-            <div className="overlay">
-                <img src="/assets/gallery/play.png" alt=""/>
+        <div key={1} className="carousel-items padding-item" onClick={toggle}>
+            <div className="first-row-item">
+                <img className="main-img" src="/assets/gallery/img1.png" alt=""/>
+                <div className="overlay">
+                    <img src="/assets/gallery/play.png" alt=""/>
+                </div>
+            </div>
+            <div className="second-row-item">
+                <img className="main-img" src="/assets/gallery/img2.png" alt=""/>
+                <div className="overlay">
+                    <img src="/assets/gallery/play.png" alt=""/>
+                </div>
             </div>
         </div>,
-        <div key={3} className="carousel-items" onClick={toggle}>
-            <img className="main-img" src="/assets/gallery/img1.png" alt=""/>
-            <div className="overlay">
-                <img src="/assets/gallery/play.png" alt=""/>
+        <div key={1} className="carousel-items" onClick={toggle}>
+            <div className="first-row-item">
+                <img className="main-img" src="/assets/gallery/img2.png" alt=""/>
+                <div className="overlay">
+                    <img src="/assets/gallery/play.png" alt=""/>
+                </div>
+            </div>
+            <div className="second-row-item">
+                <img className="main-img" src="/assets/gallery/img1.png" alt=""/>
+                <div className="overlay">
+                    <img src="/assets/gallery/play.png" alt=""/>
+                </div>
             </div>
         </div>,
-        <div key={4} className="carousel-items" onClick={toggle}>
-            <img className="main-img" src="/assets/gallery/img1.png" alt=""/>
-            <div className="overlay">
-                <img src="/assets/gallery/play.png" alt=""/>
+        <div key={1} className="carousel-items padding-item" onClick={toggle}>
+            <div className="first-row-item">
+                <img className="main-img" src="/assets/gallery/img1.png" alt=""/>
+                <div className="overlay">
+                    <img src="/assets/gallery/play.png" alt=""/>
+                </div>
+            </div>
+            <div className="second-row-item">
+                <img className="main-img" src="/assets/gallery/img2.png" alt=""/>
+                <div className="overlay">
+                    <img src="/assets/gallery/play.png" alt=""/>
+                </div>
             </div>
         </div>,
-        <div key={5} className="carousel-items" onClick={toggle}>
-            <img className="main-img" src="/assets/gallery/img1.png" alt=""/>
-            <div className="overlay">
-                <img src="/assets/gallery/play.png" alt=""/>
+        <div key={1} className="carousel-items" onClick={toggle}>
+            <div className="first-row-item">
+                <img className="main-img" src="/assets/gallery/img2.png" alt=""/>
+                <div className="overlay">
+                    <img src="/assets/gallery/play.png" alt=""/>
+                </div>
+            </div>
+            <div className="second-row-item">
+                <img className="main-img" src="/assets/gallery/img1.png" alt=""/>
+                <div className="overlay">
+                    <img src="/assets/gallery/play.png" alt=""/>
+                </div>
             </div>
         </div>,
-        <div key={6} className="carousel-items" onClick={toggle}>
-            <img className="main-img" src="/assets/gallery/img1.png" alt=""/>
-            <div className="overlay">
-                <img src="/assets/gallery/play.png" alt=""/>
+        <div key={1} className="carousel-items padding-item" onClick={toggle}>
+            <div className="first-row-item">
+                <img className="main-img" src="/assets/gallery/img1.png" alt=""/>
+                <div className="overlay">
+                    <img src="/assets/gallery/play.png" alt=""/>
+                </div>
+            </div>
+            <div className="second-row-item">
+                <img className="main-img" src="/assets/gallery/img2.png" alt=""/>
+                <div className="overlay">
+                    <img src="/assets/gallery/play.png" alt=""/>
+                </div>
             </div>
         </div>,
-        <div key={7} className="carousel-items" onClick={toggle}>
-            <img className="main-img" src="/assets/gallery/img1.png" alt=""/>
-            <div className="overlay">
-                <img src="/assets/gallery/play.png" alt=""/>
+        <div key={1} className="carousel-items" onClick={toggle}>
+            <div className="first-row-item">
+                <img className="main-img" src="/assets/gallery/img2.png" alt=""/>
+                <div className="overlay">
+                    <img src="/assets/gallery/play.png" alt=""/>
+                </div>
             </div>
-        </div>,
-        <div key={8} className="carousel-items" onClick={toggle}>
-            <img className="main-img" src="/assets/gallery/img1.png" alt=""/>
-            <div className="overlay">
-                <img src="/assets/gallery/play.png" alt=""/>
-            </div>
-        </div>,
-        <div key={9} className="carousel-items" onClick={toggle}>
-            <img className="main-img" src="/assets/gallery/img1.png" alt=""/>
-            <div className="overlay">
-                <img src="/assets/gallery/play.png" alt=""/>
+            <div className="second-row-item">
+                <img className="main-img" src="/assets/gallery/img1.png" alt=""/>
+                <div className="overlay">
+                    <img src="/assets/gallery/play.png" alt=""/>
+                </div>
             </div>
         </div>,
     ];

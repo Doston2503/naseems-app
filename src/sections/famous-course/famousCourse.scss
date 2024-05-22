@@ -1,5 +1,5 @@
 .famous-course-component {
-  background: linear-gradient(#F0F1FF, white);
+  background: linear-gradient(#f0f1ff, white);
   padding: 59px 0 55px 0;
 
   .title {
@@ -23,17 +23,27 @@
     justify-content: space-between;
     margin-bottom: 40px;
 
-    select, input {
-      border: 1px solid #7180964D;
+    select,
+    input {
+      border: 1px solid #7180964d;
       height: 56px;
       color: #444444;
       font-family: "Manrope-SemiBold", sans-serif;
       border-radius: 8px;
-
     }
 
     select:nth-child(2) {
       margin: 0 30px;
+    }
+
+    button {
+      background-color: #262e6b;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 10px;
+      width: 200px;
+      margin-left: 30px;
     }
   }
 
@@ -44,8 +54,8 @@
 
   .course-box {
     margin-bottom: 30px;
-    border: 1px solid #DDDDDD;
-    background: #FFFFFF;
+    border: 1px solid #dddddd;
+    background: #ffffff;
     display: flex;
     padding: 20px;
     box-sizing: border-box;
@@ -54,7 +64,12 @@
     transition: 0.3s linear;
 
     &:hover {
-      box-shadow: 0px 4px 20px 10px #0000000D;
+      box-shadow: 0px 4px 20px 10px #0000000d;
+    }
+
+    .poster {
+      width: 170px;
+      border-radius: 10px;
     }
 
     .course-box-for-text {
@@ -69,11 +84,17 @@
 
     .course-country {
       margin: 14px 0;
-      border: 1px solid #262E6B;
+      border: 1px solid #262e6b;
       padding: 4px 12px;
       border-radius: 20px;
       width: 220px;
       display: flex;
+      align-items: center;
+
+      img {
+        width: 25px;
+        border-radius: 2px;
+      }
 
       .country-name {
         font-family: "Manrope-Bold", sans-serif;
@@ -91,7 +112,6 @@
         font-size: 16px;
         line-height: 22px;
       }
-
     }
   }
 }
@@ -113,6 +133,11 @@
 
       select:nth-child(2) {
         margin: 20px 0;
+      }
+
+      button {
+        margin: 30px 0;
+        width: 100%;
       }
     }
 
@@ -141,7 +166,6 @@
       .course-date {
         font-size: 14px;
         line-height: 20px;
-
       }
     }
   }

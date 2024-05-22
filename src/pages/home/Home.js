@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import Header from "../../sections/header/Header";
 import TreningCourse from "../../sections/trening-course/TreningCourse";
 import Gallery from "../../sections/gallery/Gallery";
@@ -7,16 +7,16 @@ import Faq from "../../sections/faq/Faq";
 import Partner from "../../sections/partner/Partner";
 
 function Home(props) {
-    return (
-        <>
-            <Header/>
-            <TreningCourse/>
-            <Gallery/>
-            <LatestNews/>
-            <Faq/>
-            <Partner/>
-        </>
-    );
+  return (
+    <>
+      <Header />
+      <TreningCourse />
+      <Gallery />
+      <LatestNews />
+      <Faq />
+      <Partner />
+    </>
+  );
 }
 
 export default Home;

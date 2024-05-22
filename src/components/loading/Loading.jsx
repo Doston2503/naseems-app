@@ -7,7 +7,7 @@ const Loading = () => {
     <ReactLoading
       className="Loading"
       type={"bars"}
-      color={"#1e1e1e"}
+      color={"#1d2350"}
       height={"100vh"}
       width={"100vw"}
     />

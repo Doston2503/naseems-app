@@ -32,8 +32,8 @@ module.exports = {
     ns: ["translation"],
     defaultLng: "ru",
     defaultNs: "translation",
-    defaultValue: (lng = "ru", ns = "translation", key = "") => {
-      if (lng === "ru") {
+    defaultValue: (lng = "en", ns = "translation", key = "") => {
+      if (lng === "en") {
         return key;
       }
       return "";

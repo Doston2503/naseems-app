@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
-import {animateScroll as scroll } from "react-scroll";
+import { animateScroll as scroll } from "react-scroll";
 import Logo from "../../assets/img/logo.svg";
 import Arrow from "../../assets/img/arrow.png";
 import UzImage from "../../assets/img/uzb-flag.png";
@@ -9,7 +9,7 @@ import RuImage from "../../assets/img/ru-flag.png";
 import EnImage from "../../assets/img/eng-flag.png";
 import HamburgerIcon from "../hamburger-icon/HamburgerIcon";
 import "./navbar.scss";
-import {Link,useLocation} from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 const LANGUAGES = [
   {
     code: "ru",
@@ -27,7 +27,7 @@ const LANGUAGES = [
 
 const Navbar = () => {
   const { t } = useTranslation();
-  const {pathname}=useLocation();
+  const { pathname } = useLocation();
 
   const [menu_show, setMenuShow] = useState(false);
 
@@ -111,10 +111,38 @@ const Navbar = () => {
               />
             </Link>
             <ul>
-              <li><Link to="/about-us" className={pathname==='/about-us' ? 'active-link':''}>About us</Link></li>
-              <li><Link to="/courses" className={pathname==='/courses' ? 'active-link':''}>Courses</Link></li>
-              <li><Link to="/news-blogs" className={pathname==='/news-blogs' ? 'active-link':''}>News & blogs</Link></li>
-              <li><Link to="/contact" className={pathname==='/contact' ? 'active-link':''}>Contact us</Link></li>
+              <li>
+                <Link
+                  to="/about-us"
+                  className={pathname === "/about-us" ? "active-link" : ""}
+                >
+                  {t("About us")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/courses"
+                  className={pathname === "/courses" ? "active-link" : ""}
+                >
+                  {t("Courses")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/news-blogs"
+                  className={pathname === "/news-blogs" ? "active-link" : ""}
+                >
+                  {t("News & blogs")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/contact"
+                  className={pathname === "/contact" ? "active-link" : ""}
+                >
+                  {t("Contact us")}
+                </Link>
+              </li>
             </ul>
             <div className="right-box">
               <div className="language-box">
@@ -185,10 +213,18 @@ const Navbar = () => {
 
       <div className={`left-menu  ${menu_show ? "open" : "close"}`}>
         <ul>
-          <li><Link to="/about-us">About us</Link></li>
-          <li><Link to="/courses">Courses</Link></li>
-          <li><Link to="/news-blogs">News & blogs</Link></li>
-          <li><Link to="/contact">Contact us</Link></li>
+          <li>
+            <Link to="/about-us">About us</Link>
+          </li>
+          <li>
+            <Link to="/courses">Courses</Link>
+          </li>
+          <li>
+            <Link to="/news-blogs">News & blogs</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact us</Link>
+          </li>
           <li>
             <div className="language-box">
               <div

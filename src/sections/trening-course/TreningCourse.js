@@ -20,7 +20,7 @@ function TreningCourse(props) {
       .catch((error) => {});
 
     axios
-      .get(`${API_URL}course/list/?page=1`)
+      .get(`${API_URL}course/categories/`)
       .then((res) => {
         setCourses(res.data.results);
       })
@@ -61,8 +61,8 @@ function TreningCourse(props) {
         <div className="row">
           {courses?.map((item, index) => (
             <div className="col-xl-4" key={index}>
-              <Link to={"courses/" + item?.slug} className="course-box">
-                <div className="course-box-title">{item?.category?.title}</div>
+              <Link to={`courses/?category=${item?.id}`} className="course-box">
+                <div className="course-box-title">{item?.title}</div>
                 <div>
                   <img src={item?.image} alt="" />
                 </div>

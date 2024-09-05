@@ -13,7 +13,7 @@ function Footer(props) {
 
   useEffect(() => {
     axios
-      .get(`${API_URL}course/list/?page=1`)
+      .get(`${API_URL}course/categories`)
       .then((res) => {
         setCourses(res.data.results.slice(0, 4));
       })
@@ -68,8 +68,8 @@ function Footer(props) {
             <ul>
               {courses?.map((item, index) => (
                 <li key={index}>
-                  <Link to={"courses/" + item?.slug}>
-                    <a href="#">{item?.category?.title}</a>
+                  <Link to={`courses/?category=${item?.id}`}>
+                    <a href="#">{item?.title}</a>
                   </Link>
                 </li>
               ))}

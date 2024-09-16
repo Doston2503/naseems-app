@@ -4,18 +4,23 @@ import axios from "axios";
 import { API_URL } from "../../constants";
 import { useTranslation } from "react-i18next";
 function Faq(props) {
-  const { t } = useTranslation();
+    const {t, i18n} = useTranslation();
+    const lang = i18n.resolvedLanguage;
 
   const [data, setData] = useState([]);
 
   useEffect(() => {
     axios
-      .get(`${API_URL}main/faq/?page=1`)
+      .get(`${API_URL}main/faq/?page=1`, {
+          headers: {
+              'Accept-Language': lang,
+          },
+      })
       .then((res) => {
         setData(res.data.results);
       })
       .catch((error) => {});
-  }, []);
+  }, [lang]);
 
   return (
     <div className="faq-component">

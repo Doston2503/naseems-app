@@ -5,20 +5,18 @@ import axios from "axios";
 import { API_URL } from "../../constants";
 import { useTranslation } from "react-i18next";
 
-
 function TreningCourse(props) {
-  const { t,i18n } = useTranslation();
-  // const lang = i18n.resolvedLanguage;
-
+  const { t, i18n } = useTranslation();
+  const lang = i18n.resolvedLanguage;
   const [data, setData] = useState([]);
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
     axios
-      .get(`${API_URL}main/counters/?page=1`,{
-        // headers: {
-        //   'Accept-Language': lang,
-        // },
+      .get(`${API_URL}main/counters/?page=1`, {
+        headers: {
+          'Accept-Language': lang,
+        },
       })
       .then((res) => {
         setData(res.data.results);
@@ -26,16 +24,16 @@ function TreningCourse(props) {
       .catch((error) => {});
 
     axios
-      .get(`${API_URL}course/list/?page=1`,{
-      /*  headers: {
+      .get(`${API_URL}course/list/?page=1`, {
+        headers: {
           'Accept-Language': lang,
-        },*/
+        },
       })
       .then((res) => {
         setCourses(res.data.results);
       })
       .catch((error) => {});
-  }, []);
+  }, [lang]);
 
   return (
     <div className="trening-course-page">

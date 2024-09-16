@@ -7,63 +7,116 @@ import { useEffect } from "react";
 import axios from "axios";
 import { API_URL } from "../../constants";
 import Pagination from "@mui/material/Pagination";
+import { useLocation, useHistory } from "react-router-dom";
 
 function FamousCourse(props) {
-  const { t } = useTranslation();
+  const {t, i18n} = useTranslation();
+  const lang = i18n.resolvedLanguage;
+
+  const location = useLocation();
+  const history = useHistory();
+
+  const queryParams = new URLSearchParams(location.search);
+
+  const [categoryValue, setCategoryValue] = useState("");
+  const [countryValue, setCountryValue] = useState("");
 
   const [categories, setCategories] = useState([]);
   const [countries, setCountries] = useState([]);
   const [courses, setCourses] = useState([]);
 
   const [count, setCount] = useState(0);
-  const [page, setPage] = useState(1);
 
-  const [url, setUrl] = useState(`${API_URL}course/list/?page=${page}`);
+  const [url, setUrl] = useState(``);
+
+  useEffect(() => {
+    let URL = `${API_URL}course/list/`;
+    if (queryParams.get("page")) {
+      URL += `?page=${queryParams.get("page")}`;
+    } else {
+      queryParams.set("page", 1);
+      history.push({
+        pathname: location.pathname,
+        search: queryParams.toString(),
+      });
+    }
+    if (queryParams.get("category")) {
+      URL += `&category=${queryParams.get("category")}`;
+      setCategoryValue(queryParams.get("category"));
+    }
+    if (queryParams.get("country")) {
+      URL += `&country=${queryParams.get("country")}`;
+      setCountryValue(queryParams.get("country"));
+    }
+    setUrl(URL);
+  }, [location]);
 
   useEffect(() => {
     axios
-      .get(`${API_URL}course/categories`)
+      .get(`${API_URL}course/categories`, {
+        headers: {
+          'Accept-Language': lang,
+          'Cache-Control': 'no-cache'
+        },
+      })
       .then((res) => {
         setCategories(res.data.results);
       })
       .catch((error) => {});
 
     axios
-      .get(`${API_URL}course/countries`)
+      .get(`${API_URL}course/countries`, {
+        headers: {
+          'Accept-Language': lang,
+          'Cache-Control': 'no-cache'
+        },
+      })
       .then((res) => {
         setCountries(res.data.results);
       })
       .catch((error) => {});
-  }, []);
+  }, [lang]);
 
   useEffect(() => {
     axios
-      .get(url)
+      .get(url,{
+        headers: {
+          'Accept-Language': lang,
+          'Cache-Control': 'no-cache'
+        },
+      })
       .then((res) => {
         setCourses(res.data.results);
         setCount(res.data.count);
       })
       .catch((error) => {});
-  }, [page, url]);
+  }, [url,lang]);
 
   function filterCourse(e) {
     e.preventDefault();
 
-    let URL = `${API_URL}course/list/?page=${page}`;
-
     if (e.target.category.value) {
-      URL += `&category=${e.target.category.value}`;
+      queryParams.set("category", e.target.category.value);
+    } else {
+      queryParams.delete("category");
     }
 
     if (e.target.country.value) {
-      URL += `&country=${e.target.country.value}`;
+      queryParams.set("country", e.target.country.value);
+    } else {
+      queryParams.delete("country");
     }
-    setPage(1);
-    setUrl(URL);
+
+    queryParams.set("page", 1);
+
+    history.push({
+      pathname: location.pathname,
+      search: queryParams.toString(),
+    });
   }
 
   function handleChange(e) {
-    setPage(e.target.textContent);
+    queryParams.set("page", e.target.textContent);
   }
 
   return (
@@ -74,7 +127,12 @@ function FamousCourse(props) {
       <div className="container">
         <div className="row">
           <form onSubmit={filterCourse}>
-            <select name="category" className="form-select">
+            <select
+              name="category"
+              className="form-select"
+              value={categoryValue}
+              onChange={(e) => setCategoryValue(e.target.value)}
+            >
               <option value={""}>{t("All category")}</option>
               {categories?.map((category, index) => (
                 <option key={index} value={category.id}>
@@ -82,7 +140,12 @@ function FamousCourse(props) {
                 </option>
               ))}
             </select>
-            <select name="country" className="form-select">
+            <select
+              name="country"
+              className="form-select"
+              value={countryValue}
+              onChange={(e) => setCountryValue(e.target.value)}
+            >
               <option value={""}>{t("All country")}</option>
               {countries?.map((country, index) => (
                 <option key={index} value={country.id}>
@@ -90,12 +153,12 @@ function FamousCourse(props) {
                 </option>
               ))}
             </select>
-            <input
+            {/* <input
               placeholder="YYYY-MM-DD"
               className="form-control"
               name="date"
               type="date"
-            />
+            /> */}
 
             <button type="submit">{t("Filter")}</button>
           </form>
@@ -104,7 +167,7 @@ function FamousCourse(props) {
         <div className="row">
           {courses?.map((course, index) => (
             <div className="col-xl-6" key={index}>
-              <Link to={"courses/" + course?.slug}>
+              <Link to={"/courses/" + course?.slug}>
                 <div className="course-box">
                   <img className="poster" src={course?.image} alt="" />
 
@@ -122,10 +185,10 @@ function FamousCourse(props) {
                         {course?.country?.title}
                       </div>
                     </div>
-                    <div className="course-date">
+                   {/* <div className="course-date">
                       <span>{t("From")}</span>: 15.03.2024{" "}
                       <span className="ms-2">{t("To")}</span>: 12.04.2024
-                    </div>
+                    </div>*/}
                   </div>
                 </div>
               </Link>

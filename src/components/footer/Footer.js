@@ -7,18 +7,23 @@ import { useEffect } from "react";
 import axios from "axios";
 import { API_URL } from "../../constants";
 function Footer(props) {
-  const { t } = useTranslation();
+  const {t, i18n} = useTranslation();
+  const lang = i18n.resolvedLanguage;
 
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
     axios
-      .get(`${API_URL}course/list/?page=1`)
+      .get(`${API_URL}course/categories`, {
+        headers: {
+          'Accept-Language': lang,
+        },
+      })
       .then((res) => {
         setCourses(res.data.results.slice(0, 4));
       })
       .catch((error) => {});
-  }, []);
+  }, [lang]);
 
   return (
     <div className="container">
@@ -68,8 +73,8 @@ function Footer(props) {
             <ul>
               {courses?.map((item, index) => (
                 <li key={index}>
-                  <Link to={"courses/" + item?.slug}>
-                    <a href="#">{item?.category?.title}</a>
+                  <Link to={`courses/?category=${item?.id}`}>
+                    <a href="#">{item?.title}</a>
                   </Link>
                 </li>
               ))}

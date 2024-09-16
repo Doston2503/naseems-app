@@ -21,7 +21,6 @@ function HomeCarousel(props) {
   }, []);
 
   const [modal, setModal] = useState(false);
-  const [id, setId] = useState(-1);
 
   const toggle = () => {
     setModal(!modal);
@@ -157,7 +156,11 @@ function HomeCarousel(props) {
   };
 
   const items = itemData?.map((item, index) => (
-    <div key={index} className="carousel-items padding-item" onClick={toggle}>
+    <div
+      key={index}
+      className={`carousel-items ${index % 2 === 1 ? "padding-item" : ""}`}
+      onClick={toggle}
+    >
       <div
         className="first-row-item"
         onClick={() => handleFilterImage(item?.top?.id)}

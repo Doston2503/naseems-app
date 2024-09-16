@@ -91,6 +91,20 @@
       margin: 40px auto 0 auto;
     }
   }
+
+  .country-box{
+    margin-bottom: 32px;
+    .country-title{
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 29.05px;
+      margin-bottom: 16px;
+    }
+    .country-content{
+      line-height: 20px;
+      margin-bottom: 16px;
+    }
+  }
 }
 
 @media (max-width: 768px) {

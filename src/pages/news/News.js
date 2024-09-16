@@ -6,7 +6,8 @@ import { API_URL } from "../../constants";
 import Pagination from "@mui/material/Pagination";
 import { useTranslation } from "react-i18next";
 function News(props) {
-  const { t } = useTranslation();
+    const {t, i18n} = useTranslation();
+    const lang = i18n.resolvedLanguage;
 
   const [data, setData] = useState([]);
   const [count, setCount] = useState(0);
@@ -14,13 +15,17 @@ function News(props) {
 
   useEffect(() => {
     axios
-      .get(`${API_URL}news/list/?page=${page}`)
+      .get(`${API_URL}news/list/?page=${page}`, {
+          headers: {
+              'Accept-Language': lang,
+          },
+      })
       .then((res) => {
         setData(res.data.results);
         setCount(res.data.count);
       })
       .catch((error) => {});
-  }, [page]);
+  }, [page,lang]);
 
   function handleChange(e) {
     setPage(e.target.textContent);

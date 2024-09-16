@@ -4,18 +4,24 @@ import axios from "axios";
 import { API_URL } from "../../constants";
 import { useTranslation } from "react-i18next";
 function OurTeam(props) {
-  const { t } = useTranslation();
+    const {t, i18n} = useTranslation();
+    const lang = i18n.resolvedLanguage;
 
   const [data, setData] = useState([]);
 
   useEffect(() => {
     axios
-      .get(`${API_URL}main/teams/?page=1`)
+      .get(`${API_URL}main/teams/?page=1`, {
+          headers: {
+              'Accept-Language': lang,
+              'Cache-Control': 'no-cache'
+          },
+      })
       .then((res) => {
         setData(res.data.results);
       })
       .catch((error) => {});
-  }, []);
+  }, [lang]);
   return (
     <div className="our-team-component">
       <div className="all-main-title mb-5">{t("Meet our team")}</div>

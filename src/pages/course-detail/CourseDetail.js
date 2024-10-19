@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { API_URL } from "../../constants";
+import AliceCarousel from "react-alice-carousel";
 
 function CourseDetail(props) {
   const {t, i18n} = useTranslation();
@@ -44,6 +45,11 @@ function CourseDetail(props) {
     // Ingliz yoki rus tillari uchun toLocaleDateString ishlatiladi
     formattedDate = dateObj.toLocaleDateString(lang, options);
   }
+  const responsive = {
+    0: { items: 1 },
+    600: { items: 1 },
+    1024: { items: 1 },
+  };
 
   return (
     <div className="course-detail-page">
@@ -64,7 +70,8 @@ function CourseDetail(props) {
               </div>
 
               <div className="title">{course?.title}</div>
-              <div className="text">{course?.content}</div>
+              <div className="text" dangerouslySetInnerHTML={{__html: course?.content}}/>
+
 
 
               {course?.checklists?.map((item, index) => (
@@ -79,27 +86,42 @@ function CourseDetail(props) {
                   </>
               ))}
 
-              <div  className="title mb-4 mt-5">{t("What we offer")}</div>
+              <div className="title mb-4 mt-5">{t("What we offer")}</div>
 
-              {course?.extra_contents?.map((step, index) => (
-                  <div className="country-box" key={index}>
-                    <div className="country-title" >{step.title}</div>
-                    <div className="country-content">{step.content}</div>
-
-                    <div className="row">
-                      {step?.images?.map((image, index) => (
-                          <div className="col-xl-4" key={index}>
-                            <img className="w-100 h-100 mb-3" src={image?.image} alt=""/>
-                          </div>
-                      ))}
+              {course?.extra_contents?.map((step, index) => {
+                // `items` arrayni JSX tashqarisida e'lon qilamiz
+                const items = step?.images?.map((image, imgIndex) => (
+                    <div className="item" key={imgIndex}>
+                      <img className="w-100 mb-3" style={{height: "400px"}} src={image?.image} alt=""/>
                     </div>
-                  </div>
-              ))}
+                ));
+
+                return (
+                    <div className="country-box" key={index}>
+                      <div className="country-title">{step.title}</div>
+                      <div className="country-content" dangerouslySetInnerHTML={{__html: step.content}}/>
+
+                      <div className="row ">
+                        <AliceCarousel
+                            items={items}
+                            responsive={responsive}
+                            duration={400}
+                            animationType="slide"
+                            autoPlay
+                            autoPlayInterval={1000}
+                            slideTransitionDuration={500}
+                            infinite
+                            disableDotsControls
+                        />
+                      </div>
+                    </div>
+                );
+              })}
 
               {course?.certifications?.map((item, index) => (
                   <>
                     <div key={index} className="title mb-3 mt-5">{item.title}</div>
-                          <img className="w-100" src={item?.image} key={index} alt=""/>
+                    <img className="w-100" src={item?.image} key={index} alt=""/>
                   </>
               ))}
 
@@ -110,13 +132,13 @@ function CourseDetail(props) {
                 </button>
               </Link>
 
+            </div>
           </div>
         </div>
       </div>
     </div>
-</div>
-)
-  ;
+  )
+      ;
 }
 
 export default CourseDetail;

@@ -30,7 +30,7 @@ function Footer(props) {
       <div className="footer-component">
         <div className="row">
           <div className="col">
-            <img src="/assets/logo.svg" alt="" />
+            <img style={{width:"112px"}} src="/assets/logo.svg" alt="" />
 
             <div className="info-text">
               {t("The platform was developed by naseems agency.")}
@@ -103,54 +103,61 @@ function Footer(props) {
 
             <ul>
               <li>
-                <a href="">
-                  {" "}
-                  <a href="#">
-                    <img
+                <a href="tel:+998983031015">
+                  <img
                       className="me-3"
                       src="/assets/images/phone.png"
-                      alt=""
-                    />
-                    +99891 220 00 00
-                  </a>
+                      alt="Phone"
+                  />
+                  +998 (98) 303-10-15
+                </a>
+              </li>
+
+              <li>
+                <a href="tel:+998981241015">
+                  <img
+                      className="me-3"
+                      src="/assets/images/phone.png"
+                      alt="Phone"
+                  />
+                  +998 (98) 124-10-15
                 </a>
               </li>
               <li>
-                <a href="">
-                  {" "}
-                  <a href="#">
-                    <img
+                <a href="mailto:naseemscorporate@gmail.com">
+                  <img
                       className="me-3"
                       src="/assets/images/message.png"
                       alt=""
-                    />
-                    info@naseems.uz{" "}
-                  </a>
+                  />
+                  info@naseems.uz{" "}
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <hr />
+        <hr/>
 
         <div className="social-media">
           <div className="text">
             {t(
-              "© Naseem’s consulting electronic platform 2024. All rights reserved"
+                "© Naseem’s consulting electronic platform 2024. All rights reserved"
             )}
           </div>
 
           <div className="d-flex">
-            <a href="#" className="text-decoration-none">
-              <img src="/assets/images/instagram.png" alt="" />
+            <a href="https://www.instagram.com/naseems_consulting/" className="text-decoration-none" target="_blank"
+               rel="noopener noreferrer">
+              <img src="/assets/images/instagram.png" alt="Instagram"/>
             </a>
-            <a href="#" className="text-decoration-none">
-              <img className="mx-4" src="/assets/images/telegram.png" alt="" />
+            <a href="https://t.me/Naseems_Consulting" className="text-decoration-none" target="_blank"
+               rel="noopener noreferrer">
+              <img className="mx-4" src="/assets/images/telegram.png" alt="Telegram"/>
             </a>
-            <a href="#" className="text-decoration-none">
-              <img src="/assets/images/facebook.png" alt="" />
-            </a>
+            {/*<a href="#" className="text-decoration-none">
+              <img src="/assets/images/facebook.png" alt=""/>
+            </a>*/}
           </div>
         </div>
       </div>

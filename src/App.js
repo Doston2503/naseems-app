@@ -16,6 +16,8 @@ import NewsDetail from "./pages/news-detail/NewsDetail";
 
 function App() {
     const [loading, setLoading] = useState(true);
+    const [courseId, setCourseId] = useState(null);
+
 
     useEffect(() => {
         setTimeout(() => {
@@ -34,10 +36,14 @@ function App() {
                 <Route path="/" exact={true} component={Home}/>
                 <Route path="/about-us" component={About}/>
                 <Route path="/courses" exact={true} component={Courses}/>
-                <Route path="/courses/:detail" component={CourseDetail}/>
+                <Route path="/courses/:detail">
+                    <CourseDetail courseId={courseId} setCourseId={setCourseId}/>
+                </Route>
                 <Route path="/news-blogs" exact={true} component={News}/>
                 <Route path="/news-blogs/:detail" exact={true} component={NewsDetail}/>
-                <Route path="/contact" component={Contact}/>
+                <Route path="/contact">
+                    <Contact courseId={courseId}  setCourseId={setCourseId}/>
+                </Route>
             </Switch>
             <Footer/>
             <ScrollToTop/>

@@ -1,32 +1,44 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "./contact.scss";
 import axios from "axios";
 import { API_URL } from "../../constants";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 
-function Contact(props) {
+function Contact({courseId,setCourseId}) {
   const { t } = useTranslation();
-
   function addContact(e) {
     e.preventDefault();
+
     let data = {
+      type:2,
       full_name: e.target?.fullName?.value,
       phone: e.target?.phone?.value,
       email: e.target?.email?.value,
       content: e.target?.description?.value,
     };
+    if (courseId) {
+      data.type = 1;
+      data.course=courseId
+    }
+
     axios
       .post(`${API_URL}main/contacts/`, data)
       .then((res) => {
         toast.success(t("Message sent successfully!"));
         e.target.reset();
-        console.log(res);
+        setCourseId(null);
       })
       .catch((error) => {
         toast.error(t("There was an error sending the message!"));
       });
   }
+
+  useEffect(() => {
+    return () => {
+      setCourseId(null);
+    }
+  }, []);
   return (
     <div className="contact-page">
       <div className="title">{t("Contact us")}</div>

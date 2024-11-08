@@ -7,9 +7,10 @@ import axios from "axios";
 import { API_URL } from "../../constants";
 import AliceCarousel from "react-alice-carousel";
 
-function CourseDetail(props) {
+function CourseDetail({courseId,setCourseId}) {
   const {t, i18n} = useTranslation();
   const lang = i18n.resolvedLanguage;
+  console.log(courseId,setCourseId)
 
   const { detail } = useParams();
 
@@ -24,6 +25,7 @@ function CourseDetail(props) {
     })
       .then((res) => {
         setCourse(res.data);
+        setCourseId(res.data.id);
       })
       .catch((error) => {});
   }, [lang]);
@@ -126,7 +128,7 @@ function CourseDetail(props) {
               ))}
 
 
-              <Link style={{color: "white", textDecoration: "none"}} to={'/contacts'}>
+              <Link style={{color: "white", textDecoration: "none"}} to={'/contact'}>
                 <button className="register-btn">
                   {t("Regiter now")}
                 </button>

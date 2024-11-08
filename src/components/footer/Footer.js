@@ -29,8 +29,8 @@ function Footer(props) {
     <div className="container">
       <div className="footer-component">
         <div className="row">
-          <div className="col">
-            <img style={{width:"112px"}} src="/assets/logo.svg" alt="" />
+          <div className="col-2">
+            <img  src="/assets/logo.svg" alt="" />
 
             <div className="info-text">
               {t("The platform was developed by naseems agency.")}
@@ -38,49 +38,41 @@ function Footer(props) {
 
             <img src="/assets/images/info-img.png" alt="" />
           </div>
-          <div className="col">
+          <div className="col-3">
             <div className="footer-col-title">{t("Useful resources")}</div>
 
             <ul>
               <li>
-                <a href="">
-                  {" "}
-                  <a href="#">Naseems.uz</a>
-                </a>
+                  <a target="_blank" href="https://www.gov.uk/world/organisations/british-embassy-tashkent">
+                    {t("British Embassy Tashkent")}
+                  </a>
               </li>
               <li>
-                <a href="">
-                  {" "}
-                  <a href="#">Naseems.uz</a>
-                </a>
+                  <a target="_blank" href="https://tfl.gov.uk">{t("Transport For London")}</a>
               </li>
               <li>
-                <a href="">
-                  {" "}
-                  <a href="#">Naseems.uz</a>
-                </a>
+                  <a  target="_blank" href="https://mfa.uz/uz">{t("Ministry of Foreign Affairs")}</a>
               </li>
               <li>
-                <a href="">
-                  {" "}
-                  <a href="#">Naseems.uz</a>
-                </a>
+                  <a  target="_blank" href="https://geccentre.co.uk/">{t("Global Education Career Centre")}</a>
               </li>
             </ul>
           </div>
-          <div className="col">
+          <div className="col-2 courses-footer-list">
             <div className="footer-col-title">{t("Courses")}</div>
             <ul>
               {courses?.map((item, index) => (
                 <li key={index}>
                   <Link to={`courses/?category=${item?.id}`}>
-                    <a href="#">{item?.title}</a>
+                    <a href="#">{item?.title
+                        .toLowerCase()
+                        .replace(/^\S/u, c => c.toLocaleUpperCase(navigator.language))}</a>
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
-          <div className="col">
+          <div className="col-2">
             <div className="footer-col-title">{t("Services")}</div>
 
             <ul>
@@ -98,7 +90,7 @@ function Footer(props) {
               </li>
             </ul>
           </div>
-          <div className="col">
+          <div className="col-3">
             <div className="footer-col-title">{t("Contact us")}</div>
 
             <ul>
@@ -130,7 +122,7 @@ function Footer(props) {
                       src="/assets/images/message.png"
                       alt=""
                   />
-                  info@naseems.uz{" "}
+                  naseemscorporate@gmail.com
                 </a>
               </li>
             </ul>
@@ -155,9 +147,9 @@ function Footer(props) {
                rel="noopener noreferrer">
               <img className="mx-4" src="/assets/images/telegram.png" alt="Telegram"/>
             </a>
-            {/*<a href="#" className="text-decoration-none">
+            <a href="https://www.facebook.com/profile.php?id=61567395464383" target="_blank" className="text-decoration-none">
               <img src="/assets/images/facebook.png" alt=""/>
-            </a>*/}
+            </a>
           </div>
         </div>
       </div>

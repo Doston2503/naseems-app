@@ -29,7 +29,7 @@ function Footer(props) {
     <div className="container">
       <div className="footer-component">
         <div className="row">
-          <div className="col-2">
+          <div className="col-12 col-md-2 col-xl-2">
             <img  src="/assets/logo.svg" alt="" />
 
             <div className="info-text">
@@ -38,7 +38,7 @@ function Footer(props) {
 
             <img src="/assets/images/info-img.png" alt="" />
           </div>
-          <div className="col-3">
+          <div className="col-12 col-md-3 col-xl-3">
             <div className="footer-col-title">{t("Useful resources")}</div>
 
             <ul>
@@ -58,7 +58,7 @@ function Footer(props) {
               </li>
             </ul>
           </div>
-          <div className="col-2 courses-footer-list">
+          <div className="col-12 col-md-2 col-xl-2 courses-footer-list">
             <div className="footer-col-title">{t("Courses")}</div>
             <ul>
               {courses?.map((item, index) => (
@@ -72,7 +72,7 @@ function Footer(props) {
               ))}
             </ul>
           </div>
-          <div className="col-2">
+          <div className="col-12 col-md-2 col-xl-2">
             <div className="footer-col-title">{t("Services")}</div>
 
             <ul>
@@ -90,7 +90,7 @@ function Footer(props) {
               </li>
             </ul>
           </div>
-          <div className="col-3">
+          <div className="col-12 col-md-3 col-xl-3">
             <div className="footer-col-title">{t("Contact us")}</div>
 
             <ul>

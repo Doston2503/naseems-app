@@ -5,20 +5,27 @@ import "./homeCarousel.scss";
 import GalleryModal from "../../components/galleryModal/GalleryModal";
 import axios from "axios";
 import { API_URL } from "../../constants";
+import {useTranslation} from "react-i18next";
 
 function HomeCarousel(props) {
   const [data, setData] = useState([]);
   const [modalData, setModalData] = useState([]);
+  const { t, i18n } = useTranslation();
+  const lang = i18n.resolvedLanguage;
 
   useEffect(() => {
     axios
-      .get(`${API_URL}gallery/list/home`)
+      .get(`${API_URL}gallery/list/home`,{
+        headers: {
+          'Accept-Language': lang,
+        },
+      })
       .then((res) => {
         setData(res.data);
         setModalData(res.data);
       })
       .catch((error) => {});
-  }, []);
+  }, [lang]);
 
   const [modal, setModal] = useState(false);
 
